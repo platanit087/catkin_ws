@@ -1,0 +1,8 @@
+<launch>
+        <param name="path_files_wrl" value="$(find map)/filesWRL/"/>
+        <node name="environment" pkg="environment" type="environment"/>
+        <node name="path_planning" pkg="planning" type="GotoTaskAction"/>
+        <node name="basic_motion" pkg="navigation" type="basic_motion"/>
+        <node name="laser_scan_publisher" pkg="sensor" type="laser_scan_publisher"/>
+        <!-- <node name="rviz" pkg="rviz" type="rviz"/> -->
+</launch>
