@@ -55,7 +55,7 @@ int main(int argc, char ** argv) {
 	speeds.data.push_back(0);
 	speeds.data.push_back(0);
 
-	control.SetRobotParams(0.6);
+	control.SetRobotParams(0.48);
 
 	while (ros::ok()) {
 

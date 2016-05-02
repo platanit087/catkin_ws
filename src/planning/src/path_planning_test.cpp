@@ -21,11 +21,16 @@ int main(int argc, char ** argv) {
 
 	ros::init(argc, argv, "path_planning_test");
 
+	if (argc != 3) {
+		ROS_INFO("usage: MotionPlanning xf, yf");
+		return 1;
+	}
+
 	Client client("path_planning", true);
 	client.waitForServer();
 	planning::GoToTaskGoal msg;
-	msg.goal.x = -2.08;
-	msg.goal.y = 6.32;
+	msg.goal.x = atof(argv[1]);
+	msg.goal.y = atof(argv[2]);
 	// Fill in goal here
 	client.sendGoal(msg);
 	bool finished_before_timeout = client.waitForResult(ros::Duration(110.0));
