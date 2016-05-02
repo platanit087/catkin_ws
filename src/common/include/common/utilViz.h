@@ -14,13 +14,13 @@
 #include <ros/ros.h>
 #include <visualization_msgs/Marker.h>
 
-#include <simulator/LaserSensors.h>
+/*#include <simulator/LaserSensors.h>*/
 #include "utilMap.h"
 #include "queue.h"
 
 namespace biorobotics {
 
-void sendToVizLaserSensors(simulator::LaserSensors laserSensors,
+/*void sendToVizLaserSensors(simulator::LaserSensors laserSensors,
 		ros::Publisher * marker_pub) {
 	visualization_msgs::Marker ray_laser_marker;
 	ray_laser_marker.header.frame_id = "/environment";
@@ -71,7 +71,7 @@ void sendToVizLaserSensors(simulator::LaserSensors laserSensors,
 	}
 	marker_pub->publish(ray_laser_marker);
 	marker_pub->publish(end_points_marker);
-}
+}*/
 
 void sendToVizMap(Vertex2 * vertex, bool ** adyacencies, int sizeAdyacencies,
 		ros::Publisher * marker_pub) {

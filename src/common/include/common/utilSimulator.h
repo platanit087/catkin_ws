@@ -35,7 +35,7 @@ float getNextPosition(float a3, float a2, float t) {
 	return xt;
 }
 
-int quantizedInputs(const std::vector<simulator::LaserSensor> &sensors,
+/*int quantizedInputs(const std::vector<simulator::LaserSensor> &sensors,
 		const float angleRobot, const float rangeSensor,
 		const float thresholdSensor) {
 	float sd = 0.0f;
@@ -64,8 +64,8 @@ int quantizedInputs(const std::vector<simulator::LaserSensor> &sensors,
 		countNoSenseI = 0;
 	if (countNoSenseD == numD)
 		countNoSenseD = 0;
-	/*averageI = si / (float) (numI);
-	 averageD = sd / (float) (numD);*/
+	averageI = si / (float) (numI);
+	 averageD = sd / (float) (numD);
 	averageI = si;
 	averageD = sd;
 
@@ -87,7 +87,7 @@ int quantizedInputs(const std::vector<simulator::LaserSensor> &sensors,
 	return value;
 }
 
-/*simulator::MotionCommand generateOutputMotion(TypeMotion typeMotion,
+simulator::MotionCommand generateOutputMotion(TypeMotion typeMotion,
 		float distance, float angle) {
 	simulator::MotionCommand output;
 	switch (typeMotion) {
