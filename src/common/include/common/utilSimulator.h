@@ -9,8 +9,6 @@
 #define UTILSIMULATOR_H_
 
 #include "definition.h"
-#include <simulator/LaserSensor.h>
-#include <simulator/MotionCommand.h>
 
 #define aisgl_min(x,y) (x<y?x:y)
 #define aisgl_max(x,y) (y>x?y:x)
@@ -89,7 +87,7 @@ int quantizedInputs(const std::vector<simulator::LaserSensor> &sensors,
 	return value;
 }
 
-simulator::MotionCommand generateOutputMotion(TypeMotion typeMotion,
+/*simulator::MotionCommand generateOutputMotion(TypeMotion typeMotion,
 		float distance, float angle) {
 	simulator::MotionCommand output;
 	switch (typeMotion) {
@@ -115,7 +113,7 @@ simulator::MotionCommand generateOutputMotion(TypeMotion typeMotion,
 		break;
 	}
 	return output;
-}
+}*/
 
 float computeArea(Polygon polygon) {
 	int i;
