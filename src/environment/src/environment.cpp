@@ -42,6 +42,25 @@ bool environmentServiceCallback(common::Environment::Request &req,
 	return true;
 }
 
+std::vector<biorobotics::Polygon> translatePolygonsToOrigin(
+		std::vector<biorobotics::Polygon> polygons,
+		biorobotics::Vertex2 origin) {
+	std::vector<biorobotics::Polygon> polygons_translate;
+	for (int i = 0; i < polygons.size(); i++) {
+		biorobotics::Polygon polygon = polygons[i];
+		biorobotics::Polygon polygon_translate;
+		polygon_translate.num_vertex = polygon.num_vertex;
+		polygon_translate.objectType = polygon.objectType;
+		polygon_translate.vertex = new biorobotics::Vertex2[polygon.num_vertex];
+		for (int j = 0; j < polygon.num_vertex; j++) {
+			polygon_translate.vertex[j].x = polygon.vertex[j].x - origin.x;
+			polygon_translate.vertex[j].y = polygon.vertex[j].y - origin.y;
+		}
+		polygons_translate.push_back(polygon_translate);
+	}
+	return polygons_translate;
+}
+
 int main(int argc, char ** argv) {
 
 	ros::init(argc, argv, "environment");
@@ -57,6 +76,9 @@ int main(int argc, char ** argv) {
 
 	std::vector<biorobotics::Polygon> polygons = biorobotics::parserFile(
 			path_files_wrl + "bioroboticsmap.wrl");
+
+	polygons = translatePolygonsToOrigin(polygons,
+			biorobotics::Vertex2(4.7, 5.35));
 
 	polygons_ptr = polygons.data();
 	num_polygons = polygons.size();

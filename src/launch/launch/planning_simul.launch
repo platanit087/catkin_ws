@@ -1,5 +1,5 @@
 <launch>
-        <param name="path_files_wrl" value="$(find map)/filesWRL/"/>
+        <param name="path_files_wrl" value="$(find environment)/filesWRL/"/>
         <node name="environment" pkg="environment" type="environment"/>
         <node name="path_planning" pkg="planning" type="GotoTaskAction"/>
         <node name="basic_motion" pkg="navigation" type="basic_motion"/>

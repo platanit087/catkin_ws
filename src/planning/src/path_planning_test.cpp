@@ -24,8 +24,8 @@ int main(int argc, char ** argv) {
 	Client client("path_planning", true);
 	client.waitForServer();
 	planning::GoToTaskGoal msg;
-	msg.goal.x = 1.5;
-	msg.goal.y = 14.04;
+	msg.goal.x = -2.08;
+	msg.goal.y = 6.32;
 	// Fill in goal here
 	client.sendGoal(msg);
 	bool finished_before_timeout = client.waitForResult(ros::Duration(110.0));
