@@ -1,0 +1,14 @@
+<launch>
+	<!-- <node name="map_server" pkg="map_server" type="map_server" output="screen"
+        args="$(find knowledge)/navigation/occupancy_grids/biorobotic3.yaml"/> -->
+    <group ns="navigation">
+    	<group ns="localization">
+			<node name="path_calculator2" pkg="planning2" output="screen" type="path_calculator" >
+		    	<rosparam file="$(find launch)/launch/costmap_common_params.yaml" command="load" ns="global_costmap" />
+		    	<rosparam file="$(find launch)/launch/global_costmap_params.yaml" command="load" />
+		    	<remap from="map" to="/navigation/localization/map" />
+		    </node>
+	    </group>
+	</group>
+	<node name="path_planning" pkg="planning2" output="screen" type="GotoTaskAction2"/>
+</launch>
